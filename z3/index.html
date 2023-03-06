@@ -1,0 +1,79 @@
+<DOCTYPE HTML!>
+<html lang="ru">
+    <head>
+        <title>Back z3</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>Форма</h1>
+            <form  method="post" action="/">
+                <label class="user-name">
+                    Имя пользователя:
+                    <br>
+                    <input name="name" placeholder="имя">
+                    <br>
+                </label>
+                 <label class="user-mail">
+                    Почта:
+                    <br>
+                    <input name="email" type="email" placeholder="email">
+                    <br>
+                </label>
+                <label class="user-birth">
+                    Год рождения:
+                    <br>
+                    <input name="date-birthday" type="date" value="2023-03-06">
+                    <br>
+                </label>
+                <label class="gender">
+                    Пол:
+                    <br>
+                    <input type="radio" name="pol" value="man">
+                    Мужчина
+                    <br>
+                    <input type="radio" name="pol" value="woman">
+                    Женщина
+                    <br> 
+                </label>
+                <label class="count-limb">
+                    Количество конечностей:
+                    <br>
+                    <input type="radio" value="less_than_5" name="count">
+                    2-4
+                    <br>
+                    <input type="radio" value="less_than_7" name="count">
+                    5-7
+                    <br>
+                    <input type="radio" value="don't say" name="count">
+                    8-10
+                    <br>
+                </label>
+                <label class="powers">
+                    Сверхспособности:
+                    <br>
+                    <select name="Способности" multiple="multiple">
+                        <option value="Бессмертие">Бессмертие</option>
+                        <option value="Стены">Проходить сквозь стены</option>
+                        <option value="Левитация">Левитация</option>
+                    </select>
+                    <br>
+                </label>
+                <label class="bio">
+                    Биография:
+                    <br>
+                    <textarea name="Boigraohy">О себе:</textarea>
+                    <br>
+                </label>
+                <label class="check">
+                    <input type="checkbox" name="check">
+                    С контрактом ознакомлен(а)
+                    <br>
+                </label>
+                <label>
+                    <button type="submit">Отправить</button>
+                </label>
+                
+            </form>
+        </div>
+    </body>
+</html>
