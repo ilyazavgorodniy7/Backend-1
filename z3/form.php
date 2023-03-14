@@ -1,6 +1,6 @@
 <form action="" method="POST">
-  <input name="fio" />
-  <input name="mail">
+  <input name="fio" value="fio"/>
+  <input name="mail" value="mail">
   <select name="year">
     <?php 
     for ($i = 1922; $i <= 2022; $i++) {
