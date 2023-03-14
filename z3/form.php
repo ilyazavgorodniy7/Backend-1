@@ -46,6 +46,7 @@
    ?>
    </br>
    <textarea name="biography" type="textarea" placeholder="about me"></textarea>
+   </br>
    <input type="checkbox" name="check">
     С контрактом ознакомлен(а)
    </br>
