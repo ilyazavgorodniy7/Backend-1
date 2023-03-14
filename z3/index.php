@@ -75,11 +75,8 @@ catch(PDOException $e){
 }
 
 foreach ($_POST['abilities'] as $ability) {
-  $stmt = $db->prepare("INSERT INTO abilities (immortality,pass_through_walls,levitation) VALUES(:immortality,:pass_through_walls,:levitation)");
-  $stmt->bindParam(':immortality', $immortality);
-  $stmt->bindParam(':pass_through_walls', $pass_through_walls);
-  $stmt->bindParam(':levitation', $levitation);
-  $stmt->execute();
+  $stmt = $db->prepare("INSERT INTO abilities SET ability= ?");
+  $stmt->execute([$_POST['ability']);
 }
 //  stmt - это "дескриптор состояния".
  
