@@ -25,16 +25,16 @@ if (empty($_POST['fio'])) {
   $errors = TRUE;
 }
 if (empty($_POST['mail']) || !preg_match('/@/', $_POST['mail']) ) {
-  print('Заполните почту.<br/>');
+  print('Не верно указана почта.<br/>');
   $errors = TRUE;
 }
 
 if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/', $_POST['year'])) {
-  print('Заполните год.<br/>');
+  print('Неверно указан год.<br/>');
   $errors = TRUE;
 }
-if (empty($_POST['man'])|| empty($_POST['woman'])) {
-  print('Заполните gender.<br/>');
+if (empty($_POST['gender']) {
+  print('Выберете пол.<br/>');
   $errors = TRUE;
 }
 
