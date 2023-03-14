@@ -21,15 +21,15 @@
       printf('Кол-во конечностей:');
     ?>
     </br>
-    <input name="count_limb" type="radio" value="1">
+    <input name="count_limb" type="radio" value="2-4">
     <?php
       printf('2-4');
     ?>
-    <input name="count_limb" type="radio" value="2">
+    <input name="count_limb" type="radio" value="5-7">
     <?php
       printf('5-7');
     ?>
-    <input name="count_limb" type="radio" value="3">
+    <input name="count_limb" type="radio" value="8-10">
     <?php
       printf('8-10');
     ?>
