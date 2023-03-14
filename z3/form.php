@@ -6,11 +6,11 @@
   <input name="year" placeholder="year">
   </br>
   <label>
-    <input name="gender" type="radio" value="man">
+    <input name="gender" type="radio" value="1">
     <?php
     printf('man');
     ?>
-    <input name="gender" type="radio" value="woman">
+    <input name="gender" type="radio" value="0">
     <?php
     printf('woman');
     ?>
