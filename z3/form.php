@@ -1,7 +1,7 @@
 <form action="" method="POST">
   <input name="fio" />
   <input name="mail">
-  <input name="year">
+  <select name="year">
     <?php 
     for ($i = 1922; $i <= 2022; $i++) {
       printf('<option value="%d">%d год</option>', $i, $i);
