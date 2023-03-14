@@ -1,5 +1,5 @@
 <form action="" method="POST">
-  <input name="fio" value="fio"/>
+  <input name="fio" placeholder="fio"/>
   <input name="mail" value="mail">
   <select name="year">
     <?php 
