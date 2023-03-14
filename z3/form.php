@@ -33,6 +33,10 @@
       printf('8-10');
     ?>
    </label>
-   
+   <textarea name="biography" type="textarea" placeholder="about me"></textarea>
+   <?php
+   printf('Biography');
+   ?>
+
   <input type="submit" value="ok" />
 </form>
