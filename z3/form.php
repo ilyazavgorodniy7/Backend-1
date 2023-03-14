@@ -10,7 +10,7 @@
     <?php
     printf('man');
     ?>
-    <input name="gender" type="radio" value="0">
+    <input name="gender" type="radio" value="2">
     <?php
     printf('woman');
     ?>
