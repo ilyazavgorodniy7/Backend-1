@@ -33,7 +33,7 @@ if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/
   print('Неверно указан год.<br/>');
   $errors = TRUE;
 }
-if (empty($_POST['gender']) {
+if (empty($_POST['gender'])) {
   print('Выберете пол.<br/>');
   $errors = TRUE;
 }
