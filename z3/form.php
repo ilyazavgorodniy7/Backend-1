@@ -18,8 +18,9 @@
   </br>
   <label>
     <?php
-      printf('Кол-во конечностей');
+      printf('Кол-во конечностей:');
     ?>
+    </br>
     <input name="count_limb" type="radio" value="2-4">
     <?php
       printf('2-4');
@@ -32,11 +33,14 @@
     <?php
       printf('8-10');
     ?>
+   </br>
    </label>
-   <textarea name="biography" type="textarea" placeholder="about me"></textarea>
    <?php
    printf('Biography');
    ?>
+   </br>
+   <textarea name="biography" type="textarea" placeholder="about me"></textarea>
+
 
   <input type="submit" value="ok" />
 </form>
