@@ -24,11 +24,17 @@ if (empty($_POST['fio'])) {
   print('Заполните имя.<br/>');
   $errors = TRUE;
 }
+if (empty($_POST['mail'])) {
+  print('Заполните почту.<br/>');
+  $errors = TRUE;
+}
 
 if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/', $_POST['year'])) {
   print('Заполните год.<br/>');
   $errors = TRUE;
 }
+
+
 
 
 // *************
@@ -49,8 +55,8 @@ $db = new PDO('mysql:host=localhost;dbname=u52826', $user, $pass,
 
 // Подготовленный запрос. Не именованные метки.
 try {
-  $stmt = $db->prepare("INSERT INTO person SET name = ?, year= ?");
-  $stmt->execute([$_POST['fio'],$_POST['year']]);
+  $stmt = $db->prepare("INSERT INTO person SET name = ?,mail= ?, year= ?");
+  $stmt->execute([$_POST['fio'],$_POST['mail'],$_POST['year']]);
 }
 catch(PDOException $e){
   print('Error : ' . $e->getMessage());
