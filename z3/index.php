@@ -37,7 +37,10 @@ if (empty($_POST['gender'])) {
   print('Выберете пол.<br/>');
   $errors = TRUE;
 }
-
+if (empty($_POST['count_limb'])) {
+  print('Выберете кол-во конечностей.<br/>');
+  $errors = TRUE;
+}
 
 
 
