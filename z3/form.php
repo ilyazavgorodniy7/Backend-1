@@ -6,11 +6,11 @@
   <input name="year" placeholder="year">
   </br>
   <label>
-    <input name="gender" type="radio" value="man">
+    <input name="gender" type="radio" value="1">
     <?php
     printf('man');
     ?>
-    <input name="gender" type="radio" value="woman">
+    <input name="gender" type="radio" value="2">
     <?php
     printf('woman');
     ?>
@@ -21,15 +21,15 @@
       printf('Кол-во конечностей:');
     ?>
     </br>
-    <input name="count_limb" type="radio" value="2-4">
+    <input name="count_limb" type="radio" value="1">
     <?php
       printf('2-4');
     ?>
-    <input name="count_limb" type="radio" value="5-7">
+    <input name="count_limb" type="radio" value="2">
     <?php
       printf('5-7');
     ?>
-    <input name="count_limb" type="radio" value="8-10">
+    <input name="count_limb" type="radio" value="3">
     <?php
       printf('8-10');
     ?>
