@@ -18,6 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 // Иначе, если запрос был методом POST, т.е. нужно проверить данные и сохранить их в XML-файл.
 
 // Проверяем ошибки.
+
+$bioreg = "/^\s*\w+[\w\s\.,-]*$/";
+$reg = "/^\w+[\w\s-]*$/";
+$mailreg = "/^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$/";
+$list_sup = array('immortality','pass_through_walls','levitation');
+
 $errors = FALSE;
 if(empty($_POST['name'])){
 	print_r('Заполните Имя!');
@@ -54,15 +60,15 @@ if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/
   $errors = TRUE;
 }
 
-if(!preg_match($reg,$name)){
+if(!preg_match($reg,$_POST['name'])){
 	print_r('Неверный формат имени');
 	exit();
 }
-if(!preg_match($bioreg,$bio)){
+if(!preg_match($bioreg,$_POST['biography'])){
 	print_r('Неверный формат биографии');
 	exit();
 }
-if(!preg_match($mailreg,$email)){
+if(!preg_match($mailreg,$_POST['mail'])){
 	print_r('Неверный формат email');
 	exit();
 }
