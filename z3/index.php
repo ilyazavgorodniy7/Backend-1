@@ -19,10 +19,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 // Проверяем ошибки.
 $errors = FALSE;
-if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['year']) || empty($_POST['biography']) || empty($_POST['gender']) || empty($_POST['count_limb']) ){
-	print_r('Заполните пустые поля!');
+if(empty($_POST['name']){
+	print_r('Заполните Имя!');
 	exit();
 }
+if(empty($_POST['email']){
+	print_r('Заполните email!');
+	exit();
+}
+if(empty($_POST['year']){
+	print_r('Заполните год!');
+	exit();
+}
+if(empty($_POST['biography']){
+	print_r('Заполните биографию!');
+	exit();
+}
+if(empty($_POST['gender']){
+	print_r('Заполните пол!');
+	exit();
+}
+if(empty($_POST['count_limb']){
+	print_r('Заполните кол-во конечностей!');
+	exit();
+}
+
 if (empty($_POST['mail']) || !preg_match('/@/', $_POST['mail']) ) {
   print('Не верно указана почта.<br/>');
   $errors = TRUE;
