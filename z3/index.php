@@ -91,11 +91,15 @@ try {
   $stmt->execute([$_POST['name'],$_POST['email'],$_POST['year'],$_POST['gender'],$_POST['count_limb'],$_POST['biography'],$_POST['checked']]);
   
   $id = $db->lastInsertId();
-  $sppe= $db->prepare("INSERT INTO super SET name=:name, per_id=:person");
+  $sppe= $db->prepare("INSERT INTO super SET name=:name, person_id=:person");
   $sppe->bindParam(':person', $id);
-  foreach($_POST['abilities'] as $ability ){
-    $sppe->bindParam(':name', $ability);
-    $sppe->execute($_POST['abilities']);
+  foreach($superpowers as $inserting){
+	$sppe->bindParam(':name', $inserting);
+	if($sppe->execute()==false){
+	  print_r($sppe->errorCode());
+	  print_r($sppe->errorInfo());
+	  exit();
+	}
   }
 }
 catch(PDOException $e){
