@@ -34,7 +34,18 @@ if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/
   $errors = TRUE;
 }
 
-
+if(!preg_match($reg,$name)){
+	print_r('Неверный формат имени');
+	exit();
+}
+if(!preg_match($bioreg,$bio)){
+	print_r('Неверный формат биографии');
+	exit();
+}
+if(!preg_match($mailreg,$email)){
+	print_r('Неверный формат email');
+	exit();
+}
 
 // *************
 // Тут необходимо проверить правильность заполнения всех остальных полей.
