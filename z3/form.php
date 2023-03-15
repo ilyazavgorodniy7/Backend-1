@@ -36,9 +36,9 @@
    </br>
    </label>
    <select name="abilities[]" multiple="multiple">
-     <option value="Бессмертие" name="immortality">Бессмертие</option>
-     <option value="Стены" name="pass_through_walls">Проходить сквозь стены</option>
-     <option value="Левитация" name="levitation">Левитация</option>
+     <option value="immortality" name="immortality">Бессмертие</option>
+     <option value="pass_through_walls" name="pass_through_walls">Проходить сквозь стены</option>
+     <option value="levitation" name="levitation">Левитация</option>
    </select>
    <br>
    <?php
