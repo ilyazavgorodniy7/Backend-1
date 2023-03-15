@@ -20,9 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 // Проверяем ошибки.
 $errors = FALSE;
-if (empty($_POST['fio'])) {
-  print('Заполните имя.<br/>');
-  $errors = TRUE;
+if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['year']) || empty($_POST['biography']) || empty($_POST['gender']) || $_POST['count_limb'] == false || !isset($_POST['ability']) ){
+	print_r('Заполните пустые поля!');
+	exit();
 }
 if (empty($_POST['mail']) || !preg_match('/@/', $_POST['mail']) ) {
   print('Не верно указана почта.<br/>');
@@ -33,22 +33,7 @@ if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/
   print('Неверно указан год.<br/>');
   $errors = TRUE;
 }
-if (empty($_POST['gender'])) {
-  print('Выберете пол.<br/>');
-  $errors = TRUE;
-}
-if (empty($_POST['count_limb'])) {
-  print('Выберете кол-во конечностей.<br/>');
-  $errors = TRUE;
-}
-if (empty($_POST['biography'])) {
-  print('Заполните биографию.<br/>');
-  $errors = TRUE;
-}
-if (empty($_POST['checked'])) {
-  print('Согласитесь с контрактом.<br/>');
-  $errors = TRUE;
-}
+
 
 
 // *************
