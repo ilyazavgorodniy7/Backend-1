@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 // Проверяем ошибки.
 $errors = FALSE;
-if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['year']) || empty($_POST['biography']) || empty($_POST['gender']) || empty($_POST['count_limb'])) ){
+if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['year']) || empty($_POST['biography']) || empty($_POST['gender']) || empty($_POST['count_limb']) ){
 	print_r('Заполните пустые поля!');
 	exit();
 }
