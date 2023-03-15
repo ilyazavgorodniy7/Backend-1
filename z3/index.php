@@ -77,9 +77,18 @@ catch(PDOException $e){
   exit();
 }
 
-foreach ($_POST['abilities'] as $ability) {
-  $stmt = $db->prepare("INSERT INTO abilities SET ability= ?");
+
+try{
+  foreach ($_POST['abilities'] as $ability) {
+    $stmt = $db->prepare("INSERT INTO abilities SET ability= ?");
+    $stmt->execute([$_POST['ability']]);
+  }
 }
+catch(PDOException $e){
+  print('Error : ' . $e->getMessage());
+  exit();
+}
+
 $lastId = $db->lastInsertId();
 //  stmt - это "дескриптор состояния".
  
