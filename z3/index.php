@@ -86,14 +86,14 @@ $db = new PDO('mysql:host=localhost;dbname=u52826', $user, $pass,
   [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]); // Заменить test на имя БД, совпадает с логином uXXXXX
 
 // Подготовленный запрос. Не именованные метки.
-$abilities = array($_POST['ability']);
+$abilities = array($_POST['abilities']);
 $list_abilities = array('immortality','pass_through_walls','levitation');
 try {
   $stmt = $db->prepare("INSERT INTO person SET name = ?,email= ?, year= ?, gender= ?, count_limb= ?, biography= ?,checked= ?");
   $stmt->execute([$_POST['name'],$_POST['email'],$_POST['year'],$_POST['gender'],$_POST['count_limb'],$_POST['biography'],$_POST['checked']]);
   
   $id = $db->lastInsertId();
-  $sppe= $db->prepare("INSERT INTO super SET name=:name, person_id=:person");
+  $sppe= $db->prepare("INSERT INTO abilities SET name=:name, person_id=:person");
   $sppe->bindParam(':person', $id);
   foreach($abilities  as $ability){
 	$sppe->bindParam(':name', $ability);
