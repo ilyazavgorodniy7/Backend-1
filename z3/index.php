@@ -19,27 +19,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 // Проверяем ошибки.
 $errors = FALSE;
-if(empty($_POST['name']){
+if(empty($_POST['name'])){
 	print_r('Заполните Имя!');
 	exit();
 }
-if(empty($_POST['email']){
+if(empty($_POST['email'])){
 	print_r('Заполните email!');
 	exit();
 }
-if(empty($_POST['year']){
+if(empty($_POST['year'])){
 	print_r('Заполните год!');
 	exit();
 }
-if(empty($_POST['biography']){
+if(empty($_POST['biography'])){
 	print_r('Заполните биографию!');
 	exit();
 }
-if(empty($_POST['gender']){
+if(empty($_POST['gender'])){
 	print_r('Заполните пол!');
 	exit();
 }
-if(empty($_POST['count_limb']){
+if(empty($_POST['count_limb'])){
 	print_r('Заполните кол-во конечностей!');
 	exit();
 }
