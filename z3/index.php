@@ -71,16 +71,13 @@ $db = new PDO('mysql:host=localhost;dbname=u52826', $user, $pass,
 try {
   $stmt = $db->prepare("INSERT INTO person SET name = ?,mail= ?, year= ?, gender= ?, count_limb= ?, biography= ?,checked= ?");
   $stmt->execute([$_POST['fio'],$_POST['mail'],$_POST['year'],$_POST['gender'],$_POST['count_limb'],$_POST['biography'],$_POST['checked']]);
+  
   $id = $db->lastInsertId();
   $sppe= $db->prepare("INSERT INTO super SET name=:name, per_id=:person");
   $sppe->bindParam(':person', $id);
-  foreach($abilities as $ability ){
+  foreach($_POST['abilities'] as $ability ){
     $sppe->bindParam(':name', $ability);
-    if($sppe->execute()==false){
-      print_r($sppe->errorCode());
-      print_r($sppe->errorInfo());
-      exit();
-    }
+    $sppe->execute($_POST['abilities']){
   }
 }
 catch(PDOException $e){
