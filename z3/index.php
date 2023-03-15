@@ -68,10 +68,6 @@ if(!preg_match($bioreg,$_POST['biography'])){
 	print_r('Неверный формат биографии');
 	exit();
 }
-if(!preg_match($mailreg,$_POST['mail'])){
-	print_r('Неверный формат email');
-	exit();
-}
 
 // *************
 // Тут необходимо проверить правильность заполнения всех остальных полей.
