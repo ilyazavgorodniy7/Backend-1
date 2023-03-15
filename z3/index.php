@@ -50,7 +50,7 @@ if(empty($_POST['count_limb'])){
 	exit();
 }
 
-if(!preg_match($mailreg,$_POST['mail'])){
+if(!preg_match($mailreg,$_POST['email'])){
         print_r('Неверный формат email');
 	exit();
 }
