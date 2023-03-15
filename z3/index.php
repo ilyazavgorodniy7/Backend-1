@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 $bioreg = "/^\s*\w+[\w\s\.,-]*$/";
 $reg = "/^\w+[\w\s-]*$/";
 $mailreg = "/^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$/";
-$list_sup = array('immortality','pass_through_walls','levitation');
+$list_abilities = array('immortality','pass_through_walls','levitation');
 
 $errors = FALSE;
 if(empty($_POST['name'])){
@@ -67,6 +67,12 @@ if(!preg_match($reg,$_POST['name'])){
 if(!preg_match($bioreg,$_POST['biography'])){
 	print_r('Неверный формат биографии');
 	exit();
+}
+foreach($abilities as $checking){
+	if(array_search($checking,$list_abilities)=== false){
+		print_r('Неверный формат суперсил');
+		exit();
+	}
 }
 
 // *************
