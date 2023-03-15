@@ -50,14 +50,14 @@ if(empty($_POST['count_limb'])){
 	exit();
 }
 
-if (empty($_POST['mail']) || !preg_match('/@/', $_POST['mail']) ) {
-  print('Не верно указана почта.<br/>');
-  $errors = TRUE;
+if(!preg_match($mailreg,$_POST['mail'])){
+        print_r('Неверный формат email');
+	exit();
 }
 
 if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/', $_POST['year'])) {
-  print('Неверно указан год.<br/>');
-  $errors = TRUE;
+ 	print('Неверно указан год.<br/>');
+	exit();
 }
 
 if(!preg_match($reg,$_POST['name'])){
