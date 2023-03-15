@@ -77,7 +77,7 @@ try {
   $sppe->bindParam(':person', $id);
   foreach($_POST['abilities'] as $ability ){
     $sppe->bindParam(':name', $ability);
-    $sppe->execute($_POST['abilities']){
+    $sppe->execute($_POST['abilities']);
   }
 }
 catch(PDOException $e){
