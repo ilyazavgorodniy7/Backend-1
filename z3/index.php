@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 // Иначе, если запрос был методом POST, т.е. нужно проверить данные и сохранить их в XML-файл.
 
 // Проверяем ошибки.
-
+$abilities = array($_POST['abilities']);
 $bioreg = "/^\s*\w+[\w\s\.,-]*$/";
 $reg = "/^\w+[\w\s-]*$/";
 $mailreg = "/^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$/";
@@ -92,7 +92,7 @@ $db = new PDO('mysql:host=localhost;dbname=u52826', $user, $pass,
   [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]); // Заменить test на имя БД, совпадает с логином uXXXXX
 
 // Подготовленный запрос. Не именованные метки.
-$abilities = array($_POST['abilities']);
+
 $list_abilities = array('immortality','pass_through_walls','levitation');
 try {
   $stmt = $db->prepare("INSERT INTO person SET name = ?,email= ?, year= ?, gender= ?, count_limb= ?, biography= ?,checked= ?");
