@@ -93,8 +93,8 @@ try {
   $id = $db->lastInsertId();
   $sppe= $db->prepare("INSERT INTO super SET name=:name, person_id=:person");
   $sppe->bindParam(':person', $id);
-  foreach($superpowers as $inserting){
-	$sppe->bindParam(':name', $inserting);
+  foreach($abilities  as $ability){
+	$sppe->bindParam(':name', $ability);
 	if($sppe->execute()==false){
 	  print_r($sppe->errorCode());
 	  print_r($sppe->errorInfo());
