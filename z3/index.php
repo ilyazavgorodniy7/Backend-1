@@ -13,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 }
 // Иначе, если запрос был методом POST, т.е. нужно проверить данные и сохранить их в XML-файл.
 
-$abilities = array($_POST['abilities']);
 $bioreg = "/^\s*\w+[\w\s\.,-]*$/";
 $reg = "/^\w+[\w\s-]*$/";
 $mailreg = "/^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$/";
@@ -83,7 +82,7 @@ try {
   $id = $db->lastInsertId();
   $sppe= $db->prepare("INSERT INTO abilities SET power=:power, person_id=:person");
   $sppe->bindParam(':person', $id);
-  foreach($abilities  as $ability){
+  foreach($_POST['abilities']  as $ability){
 	$sppe->bindParam(':power', $ability);
 	if($sppe->execute()==false){
 	  print_r($sppe->errorCode());
