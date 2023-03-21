@@ -34,9 +34,9 @@
       printf('Ж');
     ?>
     </label>
-    <label>
     <input type="radio" name="gender" value="2">
     <br>
+    <label>
     <?php
       printf('Количество конечностей:');
       printf('1');
@@ -70,6 +70,7 @@
     <label>
     <br>
     <textarea name="biography" placeholder="about me"></textarea>
+    <br>
     <?php
       printf('С контрактом ознакомлен(-а)');
     ?>
