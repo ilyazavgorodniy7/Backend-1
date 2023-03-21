@@ -35,7 +35,7 @@
   ?>
   <input type="radio" value="3" name="count_limb">
   <?php
-    printf('Имя пользователя:');
+    printf('Сверхспособности:');
   ?>
   <select name="abilities[]" multiple="multiple"> 
     <option value="1">Бессмертие</option>
@@ -43,15 +43,12 @@
     <option value="3">Левитация</option>
   </select>
   <?php
-    printf('Имя пользователя:');
+    printf('Биография:');
   ?>
   <textarea name="biography" placeholder="about me"></textarea>
   <?php
-    printf('Имя пользователя:');
+    printf('С контрактом ознакомлен(а)');
   ?>
   <input type="checkbox" name="checked" value="on">
-  <?php
-    printf('Имя пользователя:');
-  ?>
   <input type="submit" value="ok" />
 </form>
