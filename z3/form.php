@@ -1,6 +1,5 @@
-
-<body>
-  <form action="index.php" method="POST">
+include('style.css');
+<form action="index.php" method="POST">
     <label class="user-name">
     <?php
       printf('Имя пользователя:');
@@ -55,4 +54,3 @@
     <input type="checkbox" name="checked" value="on">
     <input type="submit" value="ok" />
   </form>
-</body>
