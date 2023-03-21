@@ -33,8 +33,8 @@
     <?php
       printf('Ж');
     ?>
-    </label>
     <input type="radio" name="gender" value="2">
+    </label>
     <br>
     <label>
     <?php
