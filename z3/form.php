@@ -38,7 +38,7 @@
     <br>
     <label>
     <?php
-      printf('Количество конечностей:');
+      printf('Количество конечностей: ');
       printf('1');
     ?>
     <input type="radio" value="1" name="count_limb">
