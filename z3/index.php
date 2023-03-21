@@ -60,8 +60,8 @@ if(!preg_match($bioreg,$_POST['biography'])){
 	print_r('Неверный формат биографии');
 	exit();
 }
-foreach($abilities as $checking){
-	if(array_search($checking,$list_abilities)=== false){
+foreach($_POST['abilities'] as $checking){
+	if(array_search($checking,$list_abilities)=== 0){
 		print_r('Неверный формат суперсил');
 		exit();
 	}
