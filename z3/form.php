@@ -3,9 +3,9 @@
   <?php
    echo "<link rel='stylesheet' href=/style.css>"; 
     printf('Имя пользователя:');
-    <br>
+  <label class="user-name">
     <input name="name" placeholder="name">
-    <br>
+    </label>
   ?>
   <input name="fio" />
   <input name="year" placeholder="year">
