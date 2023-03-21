@@ -1,12 +1,11 @@
 
 <form action="index.php" method="POST">
-    include('style.css');
-    <label class="user-name">
+    <p>
     <?php
       printf('Имя пользователя:');
     ?>
     <input name="name" placeholder="name">
-    </label>
+    </p>
     <?php
       printf('Почта:');
     ?>
