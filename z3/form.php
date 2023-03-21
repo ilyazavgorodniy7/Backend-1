@@ -67,15 +67,12 @@
       printf('Биография:');
     ?>
     </label>
-    <label>
     <textarea name="biography" placeholder="about me"></textarea>
     <br>
+    <label>
     <?php
       printf('С контрактом ознакомлен(-а)');
     ?>
-    </label>
-    <br>
-    <label>
     <input type="checkbox" name="checked" value="on">
     </label>
     <label>
