@@ -68,7 +68,6 @@
     ?>
     </label>
     <label>
-    <br>
     <textarea name="biography" placeholder="about me"></textarea>
     <br>
     <?php
@@ -79,7 +78,6 @@
     <label>
     <input type="checkbox" name="checked" value="on">
     </label>
-    <br>
     <label>
     <input type="submit" value="ok" />
     </label>
