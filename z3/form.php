@@ -66,6 +66,7 @@
     <?php
       printf('Биография:');
     ?>
+    <br>
     <textarea name="biography" placeholder="about me"></textarea>
     </label>
     <br>
