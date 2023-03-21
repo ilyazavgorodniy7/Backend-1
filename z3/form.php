@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="style.css" type="text/css">
 <form action="index.php" method="POST">
-    <p>
+    <label class="user-name">
     <?php
       printf('Имя пользователя:');
     ?>
     <input name="name" placeholder="name">
-    </p>
+    </label>
     <?php
       printf('Почта:');
     ?>
