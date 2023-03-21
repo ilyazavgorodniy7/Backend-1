@@ -76,6 +76,6 @@
     <input type="checkbox" name="checked" value="on">
     </label>
     <label>
-    <input type="submit" value="ok" />
+    <input type="submit" value="ok" class="button"/>
     </label>
   </form>
