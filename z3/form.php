@@ -14,14 +14,25 @@
   <input name="year" placeholder="year">
   <?php
     printf('Пол:');
+    printf('М');
   ?>
   <input type="radio" name="gender" value="1">
+  <?php
+    printf('Ж');
+  ?>
   <input type="radio" name="gender" value="2">
   <?php
-    printf('Имя пользователя:');
+    printf('Количество конечностей:');
+    printf('1');
   ?>
   <input type="radio" value="1" name="count_limb">
+  <?php
+    printf('2');
+  ?>
   <input type="radio" value="2" name="count_limb">
+  <?php
+    printf('3');
+  ?>
   <input type="radio" value="3" name="count_limb">
   <?php
     printf('Имя пользователя:');
