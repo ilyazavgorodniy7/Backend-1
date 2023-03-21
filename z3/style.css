@@ -10,6 +10,7 @@ form{
 button{
     background-color: darkcyan;
     box-shadow: -2px -2px 0 black;
+    width:20px;
 }
 input,textarea,select{
     background-color: darkcyan;
