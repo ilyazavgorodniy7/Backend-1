@@ -69,7 +69,6 @@
     <br>
     <textarea name="biography" placeholder="about me"></textarea>
     </label>
-    <br>
     <label>
     <?php
       printf('С контрактом ознакомлен(-а)');
