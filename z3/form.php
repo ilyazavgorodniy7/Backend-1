@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="style.css" type="text/css">
 <form action="index.php" method="POST">
     <p>
     <?php
