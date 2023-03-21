@@ -11,17 +11,22 @@
     <?php
       printf('Почта:');
     ?>
+    <br>
     <input name="email" type="email" placeholder="email">
     </label>
     <label>
     <?php
       printf('Год рождения:');
     ?>
+    <br>
     <input name="year" placeholder="year">
     </label>
     <label>
     <?php
       printf('Пол:');
+    ?>
+    <br>
+    <?php
       printf('М');
     ?>
     <input type="radio" name="gender" value="1">
@@ -30,6 +35,7 @@
     ?>
     </label>
     <label>
+    <br>
     <input type="radio" name="gender" value="2">
     <?php
       printf('Количество конечностей:');
@@ -49,6 +55,7 @@
     <?php
       printf('Сверхспособности:');
     ?>
+    <br>
     <select name="abilities[]" multiple="multiple"> 
       <option value="1">Бессмертие</option>
       <option value="2">Проходить сквозь стены</option>
@@ -61,14 +68,17 @@
     ?>
     </label>
     <label>
+    <br>
     <textarea name="biography" placeholder="about me"></textarea>
     <?php
-      printf('С контрактом ознакомлен(а)');
+      printf('С контрактом ознакомлен(-а)');
     ?>
     </label>
+    <br>
     <label>
     <input type="checkbox" name="checked" value="on">
     </label>
+    <br>
     <label>
     <input type="submit" value="ok" />
     </label>
