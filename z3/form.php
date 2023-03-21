@@ -1,10 +1,47 @@
 
 <form action="index.php" method="POST">
   <?php
-   echo "<link rel='stylesheet' href=/style.css>"; 
     printf('Имя пользователя:');
   ?>
-  <input name="fio" />
+  <input name="name" placeholder="name">
+  <?php
+    printf('Почта:');
+  ?>
+  <input name="email" type="email" placeholder="email">
+  <?php
+    printf('Год рождения:');
+  ?>
   <input name="year" placeholder="year">
+  <?php
+    printf('Пол:');
+  <br>
+  ?>
+  <input type="radio" name="gender" value="1">
+  <input type="radio" name="gender" value="2">
+  <?php
+    printf('Имя пользователя:');
+  ?>
+  <input type="radio" value="1" name="count_limb">
+  <input type="radio" value="2" name="count_limb">
+  <input type="radio" value="3" name="count_limb">
+  <?php
+    printf('Имя пользователя:');
+  ?>
+  <select name="abilities[]" multiple="multiple"> 
+    <option value="1">Бессмертие</option>
+    <option value="2">Проходить сквозь стены</option>
+    <option value="3">Левитация</option>
+  </select>
+  <?php
+    printf('Имя пользователя:');
+  ?>
+  <textarea name="biography" placeholder="about me"></textarea>
+  <?php
+    printf('Имя пользователя:');
+  ?>
+  <input type="checkbox" name="checked" value="on">
+  <?php
+    printf('Имя пользователя:');
+  ?>
   <input type="submit" value="ok" />
 </form>
