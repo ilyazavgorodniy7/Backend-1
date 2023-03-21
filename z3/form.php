@@ -35,8 +35,8 @@
     ?>
     </label>
     <label>
-    <br>
     <input type="radio" name="gender" value="2">
+    <br>
     <?php
       printf('Количество конечностей:');
       printf('1');
