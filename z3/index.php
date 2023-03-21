@@ -80,7 +80,7 @@ try {
   $stmt->execute([$_POST['name'],$_POST['email'],$_POST['year'],$_POST['gender'],$_POST['count_limb'],$_POST['biography'],$_POST['checked']]);
   
   $id = $db->lastInsertId();
-  $sppe= $db->prepare("INSERT INTO abilities SET power=:power, person_id=:person");
+  $sppe= $db->prepare("INSERT INTO abilities SET power_id=:power, person_id=:person");
   $sppe->bindParam(':person', $id);
   foreach($_POST['abilities']  as $ability){
 	$sppe->bindParam(':power', $ability);
