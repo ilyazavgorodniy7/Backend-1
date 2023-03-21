@@ -2,9 +2,7 @@
 <form action="index.php" method="POST">
   <?php
    echo "<link rel='stylesheet' href=/style.css>"; 
-  <label class="user-name">
     printf('Имя пользователя:');
-  </label>
   ?>
   <input name="fio" />
   <input name="year" placeholder="year">
