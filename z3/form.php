@@ -1,20 +1,25 @@
 <link rel="stylesheet" href="style.css" type="text/css">
 <form action="index.php" method="POST">
-    <label class="user-name">
+    <label>
     <?php
       printf('Имя пользователя:');
     ?>
     <br>
     <input name="name" placeholder="name">
     </label>
+    <label>
     <?php
       printf('Почта:');
     ?>
     <input name="email" type="email" placeholder="email">
+    </label>
+    <label>
     <?php
       printf('Год рождения:');
     ?>
     <input name="year" placeholder="year">
+    </label>
+    <label>
     <?php
       printf('Пол:');
       printf('М');
@@ -23,6 +28,8 @@
     <?php
       printf('Ж');
     ?>
+    </label>
+    <label>
     <input type="radio" name="gender" value="2">
     <?php
       printf('Количество конечностей:');
@@ -37,6 +44,8 @@
       printf('3');
     ?>
     <input type="radio" value="3" name="count_limb">
+    </label>
+    <label>
     <?php
       printf('Сверхспособности:');
     ?>
@@ -45,13 +54,20 @@
       <option value="2">Проходить сквозь стены</option>
       <option value="3">Левитация</option>
     </select>
+    </label>
+    <label>
     <?php
       printf('Биография:');
     ?>
+    </label>
+    <label>
     <textarea name="biography" placeholder="about me"></textarea>
     <?php
       printf('С контрактом ознакомлен(а)');
     ?>
+    </label>
+    <label>
     <input type="checkbox" name="checked" value="on">
+    </label>
     <input type="submit" value="ok" />
   </form>
