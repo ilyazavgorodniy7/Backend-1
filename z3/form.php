@@ -1,9 +1,8 @@
 
 <form action="index.php" method="POST">
   <?php
-    printf('Имя пользователя:');
+    printf(<p>'Имя пользователя:</p>');
   ?>
-  <br>
   <input name="name" placeholder="name">
   <?php
     printf('Почта:');
