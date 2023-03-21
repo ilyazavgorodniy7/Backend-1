@@ -1,12 +1,16 @@
 
 <form action="index.php" method="POST">
+  <p>
   <?php
-    printf(<p>'Имя пользователя:</p>');
+    printf('Имя пользователя:');
   ?>
+  </p>
   <input name="name" placeholder="name">
+  <p>
   <?php
     printf('Почта:');
   ?>
+    </p>
   <input name="email" type="email" placeholder="email">
   <?php
     printf('Год рождения:');
