@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   }
   exit();
 }
+include('form.php');
 // Иначе, если запрос был методом POST, т.е. нужно проверить данные и сохранить их в XML-файл.
 
 $bioreg = "/^\s*\w+[\w\s\.,-]*$/";
