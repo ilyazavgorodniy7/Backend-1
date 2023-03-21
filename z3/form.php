@@ -1,5 +1,6 @@
-include('style.css');
+
 <form action="index.php" method="POST">
+    include('style.css');
     <label class="user-name">
     <?php
       printf('Имя пользователя:');
