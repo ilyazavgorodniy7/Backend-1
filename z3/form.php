@@ -14,7 +14,6 @@
   <input name="year" placeholder="year">
   <?php
     printf('Пол:');
-  <br>
   ?>
   <input type="radio" name="gender" value="1">
   <input type="radio" name="gender" value="2">
