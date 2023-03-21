@@ -4,6 +4,7 @@
     <?php
       printf('Имя пользователя:');
     ?>
+    <br>
     <input name="name" placeholder="name">
     </label>
     <?php
