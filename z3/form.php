@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="style.css" type="text/css">
-<body>
 <form action="index.php" method="POST">
     <label>
     <?php
@@ -79,4 +78,3 @@
     <input type="submit" value="ok" class="button"/>
     </label>
   </form>
-    </body>
