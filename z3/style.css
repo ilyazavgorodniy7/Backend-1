@@ -1,4 +1,7 @@
-
+body{
+    text-align:center;
+    backround-color:darkcyan;
+}
 form{
     display:flex;
     flex-direction: column;
@@ -9,6 +12,6 @@ button{
     box-shadow: -2px -2px 0 black;
 }
 input,textarea,select{
-    background-color: dark;
+    background-color: darkcyan;
     color: black;
 }
