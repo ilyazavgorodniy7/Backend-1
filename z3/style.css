@@ -1,11 +1,12 @@
 body{
-    text-align:center;
-    backround-color:darkcyan;
+
 }
 form{
     display:flex;
     flex-direction: column;
     gap:10px;
+    text-align:center;
+    backround-color:darkcyan;
 }
 button{
     background-color: darkcyan;
