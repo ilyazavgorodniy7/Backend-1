@@ -1,4 +1,7 @@
-
+body{
+    background-color:darkcyan;
+    text-align:center;
+}
 form{
     display:flex;
     flex-direction: column;
