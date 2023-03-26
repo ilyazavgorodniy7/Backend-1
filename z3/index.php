@@ -49,7 +49,11 @@ if(!preg_match($mailreg,$_POST['email'])){
 	exit();
 }
 if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/', $_POST['year'])) {
- 	print('Неверно указан год.<br/>');
+ 	print('Неверно указан год.');
+	exit();
+}
+if(empty($_POST['checked'])){
+	print('Примите согласие');
 	exit();
 }
 if(!preg_match($reg,$_POST['name'])){
