@@ -76,12 +76,12 @@
       ?>
       <input type="radio" value="3" name="count_limb">
       </label>
-      <label  <?php if ($errors['abilities']) {print 'class="error"';} ?> abilities_value="<?php print $values['abilities']; ?>">
+      <label >
       <?php
         printf('Сверхспособности:');
       ?>
       <br>
-      <select name="abilities[]" multiple="multiple"> 
+      <select name="abilities[]" multiple="multiple"  <?php if ($errors['abilities']) {print 'class="error"';} ?> abilities_value="<?php print $values['abilities']; ?>"> 
         <option value="1">Бессмертие</option>
         <option value="2">Проходить сквозь стены</option>
         <option value="3">Левитация</option>
