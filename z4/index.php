@@ -191,9 +191,7 @@ foreach($_POST['abilities'] as $checking){
     header('Location: index.php');
     exit();
   }
-  else {
-    setcookie('name_error', '', 100000);
-  }
+
   $user = 'u52826';
   $pass = '4927417';
   $db = new PDO('mysql:host=localhost;dbname=u52826', $user, $pass,
