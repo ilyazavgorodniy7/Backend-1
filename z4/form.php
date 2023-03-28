@@ -28,7 +28,7 @@
         printf('Имя пользователя:');
       ?>
       <br>
-      <input name="name" placeholder="name" <?php if ($errors['name']) {print 'class="error"';} ?> >
+      <input name="name" placeholder="name" <?php if ($errors['name']) {print 'class="error"';}?> 
       </label>
       <label>
       <?php
