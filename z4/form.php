@@ -89,11 +89,11 @@
       <br>
       <textarea name="biography" placeholder="about me"  <?php if ($errors['biography']) {print 'class="error"';} ?> biography_value="<?php print $values['biography_limb']; ?>"></textarea>
       </label>
-      <label <?php if ($errors['checked']) {print 'class="error"';} ?> checked_value="<?php print $values['checked_limb']; ?>">
+      <label>
       <?php
         printf('С контрактом ознакомлен(-а)');
       ?>
-      <input type="checkbox" name="checked" value="on">
+      <input type="checkbox" name="checked" value="on" <?php if ($errors['checked']) {print 'class="error"';} ?> checked_value="<?php print $values['checked_limb']; ?>">
       </label>
       <label>
       <input type="submit" value="ok" class="button"/>
