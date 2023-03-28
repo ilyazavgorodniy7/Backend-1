@@ -61,9 +61,9 @@
       <label  <?php if ($errors['count_limb']) {print 'class="error"';} ?> count_limb_value="<?php print $values['count_limb']; ?>">
       <?php
         printf('Количество конечностей: ');
+        <br>
         printf('1');
       ?>
-        <br>
       <input type="radio" value="1" name="count_limb">
       <?php
         printf('2');
