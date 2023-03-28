@@ -7,6 +7,7 @@
     <style>
       .error {
         border: 2px solid red;
+        border-width:120px;
       }
     </style>
   </head>
