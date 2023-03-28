@@ -1,12 +1,13 @@
 
 <html>
   <head>
-    <link rel="stylesheet" href="style.css" type="text/css">
+
     <style>
       .error {
         border: 2px solid red;
       }
     </style>
+        <link rel="stylesheet" href="style.css" type="text/css">
   </head>
   <body>
   <?php
