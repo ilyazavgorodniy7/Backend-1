@@ -42,7 +42,7 @@
       <br>
       <input name="year" placeholder="year" <?php if ($errors['year']) {print 'class="error"';} ?> value="<?php print $values['year']; ?>">
       </label>
-      <label>
+      <label <?php if ($errors['gender']) {print 'class="error"';} ?> value="<?php print $values['gender']; ?>">
       <?php
         printf('Пол:');
       ?>
@@ -50,11 +50,11 @@
       <?php
         printf('М');
       ?>
-      <input type="radio" name="gender" value="1" <?php if ($errors['gender']) {print 'class="error"';} ?> value="<?php print $values['gender']; ?>">
+      <input type="radio" name="gender" value="1" >
       <?php
         printf('Ж');
       ?>
-      <input type="radio" name="gender" value="2" <?php if ($errors['gender']) {print 'class="error"';} ?> value="<?php print $values['gender']; ?>">
+      <input type="radio" name="gender" value="2">
       </label>
       <label>
       <?php
