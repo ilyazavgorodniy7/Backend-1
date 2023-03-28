@@ -71,7 +71,7 @@
       ?>
       <input type="radio" value="3" name="count_limb">
       </label>
-      <label>
+      <label  <?php if ($errors['abilities']) {print 'class="error"';} ?> abilities_value="<?php print $values['abilities']; ?>">
       <?php
         printf('Сверхспособности:');
       ?>
@@ -82,14 +82,14 @@
         <option value="3">Левитация</option>
       </select>
       </label>
-      <label>
+      <label  <?php if ($errors['biography']) {print 'class="error"';} ?> biography_value="<?php print $values['biography_limb']; ?>">
       <?php
         printf('Биография:');
       ?>
       <br>
       <textarea name="biography" placeholder="about me"></textarea>
       </label>
-      <label>
+      <label <?php if ($errors['checked']) {print 'class="error"';} ?> checked_value="<?php print $values['checked_limb']; ?>">
       <?php
         printf('С контрактом ознакомлен(-а)');
       ?>
