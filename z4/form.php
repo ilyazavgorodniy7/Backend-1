@@ -8,6 +8,10 @@
       .error {
         width:200px;
         border: 2px solid red;
+        display:flex;
+        flex-direction:column;
+        align-self:center;
+        
         gap:2px;
       }
     </style>
