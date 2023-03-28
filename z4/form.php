@@ -1,6 +1,7 @@
-<link rel="stylesheet" href="style.css" type="text/css">
+
 <html>
   <head>
+    <link rel="stylesheet" href="style.css" type="text/css">
     <style>
       .error {
         border: 2px solid red;
