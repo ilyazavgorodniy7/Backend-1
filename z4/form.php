@@ -42,7 +42,7 @@
       <br>
       <input name="year" placeholder="year" <?php if ($errors['year']) {print 'class="error"';} ?> year_value="<?php print $values['year']; ?>">
       </label>
-      <label <?php if ($errors['gender']) {print 'class="error"';} ?> gender_value="<?php print $value['gender']; ?>">
+      <label <?php if ($errors['gender']) {print 'class="error"';} ?> gender_value="<?php print $value['gender']; ?>" width="100px">
       <?php
         printf('Пол:');
       ?>
