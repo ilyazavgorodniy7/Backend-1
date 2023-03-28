@@ -6,7 +6,9 @@
   <head>
     <style>
       .error {
+        width:150px;
         border: 2px solid red;
+        gap:2px;
       }
     </style>
   </head>
