@@ -219,5 +219,5 @@ foreach($_POST['abilities'] as $checking){
     exit();
   }
   setcookie('save', '1');
-  header('Location: index.php');
+  header('Location: ?save=1');
 }
