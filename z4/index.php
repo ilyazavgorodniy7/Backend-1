@@ -177,13 +177,6 @@ foreach($_POST['abilities'] as $checking){
 	else {
     	    setcookie('abilities_value', $_POST['abilities'], time() + 30 * 24 * 60 * 60 * 12);
   	}
-	if (empty($_POST['abilities'])) {
-	    setcookie('abilities_error', '1', time() + 24 * 60 * 60);
-	    $errors = TRUE;
-	}
-	else {
-	    setcookie('abilities_value', $_POST['abilities'], time() + 30 * 24 * 60 * 60 * 12);
-	}
 	
 }
 
