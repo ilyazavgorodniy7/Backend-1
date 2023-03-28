@@ -1,5 +1,9 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
+$bioreg = "/^\s*\w+[\w\s\.,-]*$/";
+$reg = "/^\w+[\w\s-]*$/";
+$mailreg = "/^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$/";
+$list_abilities = array('1','2','3');
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $messages = array();
   if (!empty($_COOKIE['save'])) {
@@ -9,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $errors = array();
   $errors['name'] = !empty($_COOKIE['name_error']);
   $errors['year'] = !empty($_COOKIE['year_error']);
-  $errors['email'] = !empty($_COOKIE['emal_error']);
+  $errors['email'] = !empty($_COOKIE['email_error']);
   $errors['gender'] = !empty($_COOKIE['gender_error']);
   $errors['count_limb'] = !empty($_COOKIE['count_limb_error']);
   $errors['biography '] = !empty($_COOKIE['biography_error']);
@@ -18,35 +22,170 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
   if ($errors['name']) {
     setcookie('name_error', '', 100000);
-    $messages[] = '<div class="error">Заполните имя.</div>';
+    $messages[] = '<div class="error">Неправильная форма имени</div>';
   }
+	if ($errors['year']) {
+    setcookie('year_error', '', 100000);
+    $messages[] = '<div class="error">Неправильная форма года</div>';
+  }
+	if ($errors['email']) {
+    setcookie('email_error', '', 100000);
+    $messages[] = '<div class="error">Неправильная форма email</div>';
+  }
+	if ($errors['gender']) {
+    setcookie('gender_error', '', 100000);
+    $messages[] = '<div class="error">Выберите пол</div>';
+  }
+	if ($errors['count_limb']) {
+    setcookie('count_limb_error', '', 100000);
+    $messages[] = '<div class="error">Выберите кол-во конечностей</div>';
+  }
+	if ($errors['biography']) {
+    setcookie('biography_error', '', 100000);
+    $messages[] = '<div class="error">Неправильная форма биографии</div>';
+  }
+	if ($errors['checked']) {
+    setcookie('checked_error', '', 100000);
+    $messages[] = '<div class="error">Примите согласие</div>';
+  }
+	if ($errors['abilities']) {
+    setcookie('abilities_error', '', 100000);
+    $messages[] = '<div class="error">Выберите суперсилу</div>';
+  }
+	
   $values = array();
   $values['name'] = empty($_COOKIE['name_value']) ? '' : $_COOKIE['name_value'];
+  $values['year'] = empty($_COOKIE['year_value']) ? '' : $_COOKIE['year_value'];
+  $values['email'] = empty($_COOKIE['email_value']) ? '' : $_COOKIE['email_value'];
+  $values['gender'] = empty($_COOKIE['gender_value']) ? '' : $_COOKIE['gender_value'];
+  $values['count_limb'] = empty($_COOKIE['count_limb_value']) ? '' : $_COOKIE['count_limb_value'];
+  $values['biography'] = empty($_COOKIE['biography_value']) ? '' : $_COOKIE['biography_value'];
+  $values['checked'] = empty($_COOKIE['checked_value']) ? '' : $_COOKIE['checked_value'];
+  $values['abilities'] = empty($_COOKIE['abilities_value']) ? '' : $_COOKIE['abilities_value'];
 
   include('form.php');
 }
-
-$bioreg = "/^\s*\w+[\w\s\.,-]*$/";
-$reg = "/^\w+[\w\s-]*$/";
-$mailreg = "/^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$/";
-$list_abilities = array('1','2','3');
 else {
   $errors = FALSE;
+  if (empty($_POST['name']) || !preg_match($reg,$_POST['name'])) {
+    setcookie('name_error', '1', time() + 24 * 60 * 60);
+    $errors = TRUE;
+  }
+  else {
+    setcookie('name_value', $_POST['name'], time() + 30 * 24 * 60 * 60 * 12);
+  }
   if (empty($_POST['name'])) {
     setcookie('name_error', '1', time() + 24 * 60 * 60);
     $errors = TRUE;
   }
   else {
-    setcookie('name_value', $_POST['fio'], time() + 30 * 24 * 60 * 60 * 12);
+    setcookie('name_value', $_POST['name'], time() + 30 * 24 * 60 * 60 * 12);
   }
-  if (empty($_POST['name'])) {
-    setcookie('name_error', '1', time() + 24 * 60 * 60);
+	
+if (empty($_POST['email']) || !preg_match($mailreg,$_POST['email'])) {
+    setcookie('email_error', '1', time() + 24 * 60 * 60);
     $errors = TRUE;
   }
   else {
-    setcookie('name_value', $_POST['fio'], time() + 30 * 24 * 60 * 60 * 12);
-  }	
-
+    setcookie('email_value', $_POST['email'], time() + 30 * 24 * 60 * 60 * 12);
+  }
+  if (empty($_POST['email'])) {
+    setcookie('email_error', '1', time() + 24 * 60 * 60);
+    $errors = TRUE;
+  }
+  else {
+    setcookie('email_value', $_POST['email'], time() + 30 * 24 * 60 * 60 * 12);
+  }
+if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/', $_POST['year'])) {
+    setcookie('year_error', '1', time() + 24 * 60 * 60);
+    $errors = TRUE;
+  }
+  else {
+    setcookie('year_value', $_POST['year'], time() + 30 * 24 * 60 * 60 * 12);
+  }
+  if (empty($_POST['year'])) {
+    setcookie('year_error', '1', time() + 24 * 60 * 60);
+    $errors = TRUE;
+  }
+  else {
+    setcookie('year_value', $_POST['year'], time() + 30 * 24 * 60 * 60 * 12);
+  }
+if (empty($_POST['biography']) || !preg_match($bioreg,$_POST['biography'])) {
+    setcookie('biography_error', '1', time() + 24 * 60 * 60);
+    $errors = TRUE;
+  }
+  else {
+    setcookie('biography_value', $_POST['biography'], time() + 30 * 24 * 60 * 60 * 12);
+  }
+  if (empty($_POST['biography'])) {
+    setcookie('biography_error', '1', time() + 24 * 60 * 60);
+    $errors = TRUE;
+  }
+  else {
+    setcookie('biography_value', $_POST['biography'], time() + 30 * 24 * 60 * 60 * 12);
+  }
+if (empty($_POST['gender'])) {
+    setcookie('gender_error', '1', time() + 24 * 60 * 60);
+    $errors = TRUE;
+  }
+  else {
+    setcookie('gender_value', $_POST['gender'], time() + 30 * 24 * 60 * 60 * 12);
+  }
+  if (empty($_POST['gender'])) {
+    setcookie('gender_error', '1', time() + 24 * 60 * 60);
+    $errors = TRUE;
+  }
+  else {
+    setcookie('gender_value', $_POST['gender'], time() + 30 * 24 * 60 * 60 * 12);
+  }
+if (empty($_POST['count_limb'])) {
+    setcookie('count_limb_error', '1', time() + 24 * 60 * 60);
+    $errors = TRUE;
+  }
+  else {
+    setcookie('count_limb_value', $_POST['count_limb'], time() + 30 * 24 * 60 * 60 * 12);
+  }
+  if (empty($_POST['count_limb'])) {
+    setcookie('count_limb_error', '1', time() + 24 * 60 * 60);
+    $errors = TRUE;
+  }
+  else {
+    setcookie('count_limb_value', $_POST['count_limb'], time() + 30 * 24 * 60 * 60 * 12);
+  }
+if (empty($_POST['checked'])) {
+    setcookie('checked_error', '1', time() + 24 * 60 * 60);
+    $errors = TRUE;
+  }
+  else {
+    setcookie('checked_value', $_POST['checked'], time() + 30 * 24 * 60 * 60 * 12);
+  }
+  if (empty($_POST['checked'])) {
+    setcookie('checked_error', '1', time() + 24 * 60 * 60);
+    $errors = TRUE;
+  }
+  else {
+    setcookie('checked_value', $_POST['checked'], time() + 30 * 24 * 60 * 60 * 12);
+  }
+	
+	
+	
+foreach($_POST['abilities'] as $checking){
+	if(array_search($checking,$list_abilities)=== false){
+		setcookie('abilities_error', '1', time() + 24 * 60 * 60);
+		$errors = TRUE;
+	}
+	else {
+    	    setcookie('abilities_value', $_POST['name'], time() + 30 * 24 * 60 * 60 * 12);
+  	}
+	if (empty($_POST['abilities'])) {
+	    setcookie('abilities_error', '1', time() + 24 * 60 * 60);
+	    $errors = TRUE;
+	}
+	else {
+	    setcookie('abilities_value', $_POST['name'], time() + 30 * 24 * 60 * 60 * 12);
+	}
+	
+}
 
   if ($errors) {
     header('Location: index.php');
@@ -55,12 +194,10 @@ else {
   else {
     setcookie('name_error', '', 100000);
   }
-
   $user = 'u52826';
   $pass = '4927417';
   $db = new PDO('mysql:host=localhost;dbname=u52826', $user, $pass,
   [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-
   try {
 	  $stmt = $db->prepare("INSERT INTO person SET name = ?,email= ?, year= ?, gender= ?, count_limb= ?, biography= ?,checked= ?");
 	  $stmt->execute([$_POST['name'],$_POST['email'],$_POST['year'],$_POST['gender'],$_POST['count_limb'],$_POST['biography'],$_POST['checked']]);
@@ -84,73 +221,3 @@ else {
   setcookie('save', '1');
   header('Location: index.php');
 }
-
-
-
-
-
-
-
-
-
-
-
-
-$errors = FALSE;
-if(empty($_POST['name'])){
-	print_r('Заполните Имя!');
-	exit();
-}
-if(empty($_POST['email'])){
-	print_r('Заполните email!');
-	exit();
-}
-if(empty($_POST['year'])){
-	print_r('Заполните год!');
-	exit();
-}
-if(empty($_POST['biography'])){
-	print_r('Заполните биографию!');
-	exit();
-}
-if(empty($_POST['gender'])){
-	print_r('Заполните пол!');
-	exit();
-}
-if(empty($_POST['count_limb'])){
-	print_r('Заполните кол-во конечностей!');
-	exit();
-}
-if(!preg_match($mailreg,$_POST['email'])){
-        print_r('Неверный формат email');
-	exit();
-}
-if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/', $_POST['year'])) {
- 	print('Неверно указан год.');
-	exit();
-}
-if(empty($_POST['checked'])){
-	print('Примите согласие');
-	exit();
-}
-if(!preg_match($reg,$_POST['name'])){
-	print_r('Неверный формат имени');
-	exit();
-}
-if(!preg_match($bioreg,$_POST['biography'])){
-	print_r('Неверный формат биографии');
-	exit();
-}
-foreach($_POST['abilities'] as $checking){
-	if(array_search($checking,$list_abilities)=== false){
-		print_r('Неверный формат суперсил');
-		exit();
-	}
-}
-
-if ($errors) {
-  exit();
-}
-
-
-header('Location: ?save=1');
