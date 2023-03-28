@@ -56,20 +56,20 @@
       ?>
       <input type="radio" name="gender" value="2">
       </label>
-      <label>
+      <label  <?php if ($errors['count_limb']) {print 'class="error"';} ?> count_limb_value="<?php print $values['count_limb']; ?>">
       <?php
         printf('Количество конечностей: ');
         printf('1');
       ?>
-      <input type="radio" value="1" name="count_limb" <?php if ($errors['count_limb']) {print 'class="error"';} ?> count_limb_value="<?php print $values['count_limb']; ?>">
+      <input type="radio" value="1" name="count_limb">
       <?php
         printf('2');
       ?>
-      <input type="radio" value="2" name="count_limb" <?php if ($errors['count_limb']) {print 'class="error"';} ?> count_limb_value="<?php print $values['count_limb']; ?>">
+      <input type="radio" value="2" name="count_limb">
       <?php
         printf('3');
       ?>
-      <input type="radio" value="3" name="count_limb" <?php if ($errors['count_limb']) {print 'class="error"';} ?> count_limb_value="<?php print $values['count_limb']; ?>">
+      <input type="radio" value="3" name="count_limb">
       </label>
       <label>
       <?php
