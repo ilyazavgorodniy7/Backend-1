@@ -118,16 +118,13 @@ if (empty($_POST['checked'])) {
     setcookie('checked_value', $_POST['checked'], time() + 30 * 24 * 60 * 60 * 12);
   }
 
-foreach($_POST['abilities'] as $checking){
-	if(array_search($checking,$list_abilities)=== false){
-		setcookie('abilities_error', '1', time() + 24 * 60 * 60);
-		$errors = TRUE;
-	}
-	else {
-    	    setcookie('abilities_value', $_POST['abilities'], time() + 30 * 24 * 60 * 60 * 12);
-  	}
-	
+if(empty($_POST['abilities'])){
+	setcookie('abilities_error', '1', time() + 24 * 60 * 60);
+	$errors = TRUE;
 }
+else {
+    	setcookie('abilities_value', $_POST['abilities'], time() + 30 * 24 * 60 * 60 * 12);
+ }
 
   if ($errors) {
     header('Location: index.php');
