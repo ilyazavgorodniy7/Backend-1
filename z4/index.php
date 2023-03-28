@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $errors['email'] = !empty($_COOKIE['email_error']);
   $errors['gender'] = !empty($_COOKIE['gender_error']);
   $errors['count_limb'] = !empty($_COOKIE['count_limb_error']);
-  $errors['biography '] = !empty($_COOKIE['biography_error']);
+  $errors['biography'] = !empty($_COOKIE['biography_error']);
   $errors['checked'] = !empty($_COOKIE['checked_error']);
   $errors['abilities'] = !empty($_COOKIE['abilities_error']);
 	
