@@ -26,23 +26,23 @@
         printf('Имя пользователя:');
       ?>
       <br>
-      <input name="name" placeholder="name" <?php if ($errors['name']) {print 'class="error"';} ?> value="<?php print $values['name']; ?>">
+      <input name="name" placeholder="name" <?php if ($errors['name']) {print 'class="error"';} ?> value="<?php print $value['name'];?>" >
       </label>
       <label>
       <?php
         printf('Почта:');
       ?>
       <br>
-      <input name="email" type="email" placeholder="email" <?php if ($errors['email']) {print 'class="error"';} ?> value="<?php print $values['email']; ?>">
+      <input name="email" type="email" placeholder="email" <?php if ($errors['email']) {print 'class="error"';} ?> value="<?php print $value['email']; ?>">
       </label>
       <label>
       <?php
         printf('Год рождения:');
       ?>
       <br>
-      <input name="year" placeholder="year" <?php if ($errors['year']) {print 'class="error"';} ?> value="<?php print $values['year']; ?>">
+      <input name="year" placeholder="year" <?php if ($errors['year']) {print 'class="error"';} ?> value="<?php print $value['year']; ?>">
       </label>
-      <label <?php if ($errors['gender']) {print 'class="error"';} ?> value="<?php print $values['gender']; ?>">
+      <label <?php if ($errors['gender']) {print 'class="error"';} ?> value="<?php print $value['gender']; ?>">
       <?php
         printf('Пол:');
       ?>
@@ -61,15 +61,15 @@
         printf('Количество конечностей: ');
         printf('1');
       ?>
-      <input type="radio" value="1" name="count_limb" <?php if ($errors['count_limb']) {print 'class="error"';} ?> value="<?php print $values['count_limb']; ?>">
+      <input type="radio" value="1" name="count_limb" <?php if ($errors['count_limb']) {print 'class="error"';} ?> value="<?php print $value['count_limb']; ?>">
       <?php
         printf('2');
       ?>
-      <input type="radio" value="2" name="count_limb" <?php if ($errors['count_limb']) {print 'class="error"';} ?> value="<?php print $values['count_limb']; ?>">
+      <input type="radio" value="2" name="count_limb" <?php if ($errors['count_limb']) {print 'class="error"';} ?> value="<?php print $value['count_limb']; ?>">
       <?php
         printf('3');
       ?>
-      <input type="radio" value="3" name="count_limb" <?php if ($errors['count_limb']) {print 'class="error"';} ?> value="<?php print $values['count_limb']; ?>">
+      <input type="radio" value="3" name="count_limb" <?php if ($errors['count_limb']) {print 'class="error"';} ?> value="<?php print $value['count_limb']; ?>">
       </label>
       <label>
       <?php
