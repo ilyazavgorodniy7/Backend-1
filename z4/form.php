@@ -6,6 +6,7 @@
   <head>
     <style>
       .error {
+        margin:0 auto;
         width:200px;
         border: 2px solid red;
       }
