@@ -11,7 +11,7 @@ if (!empty($_SESSION['login'])) {
   // TODO: Сделать выход (окончание сессии вызовом session_destroy()
   //при нажатии на кнопку Выход).
   // Делаем перенаправление на форму.
-  header('Location: ./');
+  header('Location: ./form.php');
 }
 
 // В суперглобальном массиве $_SERVER PHP сохраняет некторые заголовки запроса HTTP
@@ -37,7 +37,7 @@ else {
   $_SESSION['user_id'] = $db->lastInsertId();;
 
   // Делаем перенаправление.
-  header('Location: ?password=1');
+  header('Location: ./form.php');
 }
 ?>
 </html>
