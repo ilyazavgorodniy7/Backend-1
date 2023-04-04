@@ -2,7 +2,7 @@
 <header>
   <link rel="stylesheet" href="style.css" type="text/css">
 </header>
-<body>
+
 <?php
 header('Content-Type: text/html; charset=UTF-8');
 session_start();
@@ -18,12 +18,13 @@ if (!empty($_SESSION['login'])) {
 // и другие сведения о клиненте и сервере, например метод текущего запроса $_SERVER['REQUEST_METHOD'].
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 ?>
-
+<body>
 <form action="index.php" method="POST" width="150px">
   <input name="login" placeholder="login"/>
   <input name="password"  placeholder="password"/>
   <input type="submit" value="Войти" />
 </form>
+ </body>
 <?php
 }
 // Иначе, если запрос был методом POST, т.е. нужно сделать авторизацию с записью логина в сессию.
@@ -39,5 +40,4 @@ else {
   header('Location: ./');
 }
 ?>
-</body>
 </html>
