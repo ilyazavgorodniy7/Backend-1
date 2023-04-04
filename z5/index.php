@@ -175,7 +175,7 @@ if (!empty($_COOKIE[session_name()]) && session_start() && !empty($_SESSION['log
 else {
     // Генерируем уникальный логин и пароль.
     // TODO: сделать механизм генерации, например функциями rand(), uniquid(), md5(), substr().
-    $login = ;
+    $login = '';
     $password = '';
     $arr = array('a','b','c','d','e','f',
                  'g','h','i','j','k','l',
