@@ -4,11 +4,21 @@ $bioreg = "/^\s*\w+[\w\s\.,-]*$/";
 $reg = "/^\w+[\w\s-]*$/";
 $mailreg = "/^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$/";
 $list_abilities = array('1','2','3');
+
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $messages = array();
+	
   if (!empty($_COOKIE['save'])) {
     setcookie('save', '', 100000);
+    setcookie('login', '', 100000);
+    setcookie('pass', '', 100000);
     $messages[] = 'Спасибо, результаты сохранены.';
+    if (!empty($_COOKIE['pass'])) {
+      $messages[] = sprintf('Вы можете <a href="login.php">войти</a> с логином <strong>%s</strong>
+        и паролем <strong>%s</strong> для изменения данных.',
+        strip_tags($_COOKIE['login']),
+        strip_tags($_COOKIE['pass']));
+    }
   }
   $errors = array();
   $errors['name'] = !empty($_COOKIE['name_error']);
@@ -154,6 +164,22 @@ else {
   catch(PDOException $e){
     print('Error : ' . $e->getMessage());
     exit();
+  }
+if (!empty($_COOKIE[session_name()]) && session_start() && !empty($_SESSION['login'])) {
+    // TODO: перезаписать данные в БД новыми данными,
+    // кроме логина и пароля.
+}
+else {
+    // Генерируем уникальный логин и пароль.
+    // TODO: сделать механизм генерации, например функциями rand(), uniquid(), md5(), substr().
+    $login = '123';
+    $pass = '123';
+    // Сохраняем в Cookies.
+    setcookie('login', $login);
+    setcookie('pass', $pass);
+
+    // TODO: Сохранение данных формы, логина и хеш md5() пароля в базу данных.
+    // ...
   }
   setcookie('save', '1');
   header('Location: ?save=1');
