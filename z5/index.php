@@ -27,6 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }  
   }
   $errors = array();
+  $errors['user_id'] = !empty($_COOKIE['user_id_error']);
+  $errors['password'] = !empty($_COOKIE['password_error']);
   $errors['name'] = !empty($_COOKIE['name_error']);
   $errors['year'] = !empty($_COOKIE['year_error']);
   $errors['email'] = !empty($_COOKIE['email_error']);
@@ -36,6 +38,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $errors['checked'] = !empty($_COOKIE['checked_error']);
   $errors['abilities'] = !empty($_COOKIE['abilities_error']);
 	
+	
+  if ($errors['user_id']) {
+    setcookie('user_id_error', '', 100000);
+    $messages[] = '<div class="error">Заполните login</div>';
+  }
+  if ($errors['password']) {
+    setcookie('password_error', '', 100000);
+    $messages[] = '<div class="error">Заполните пароль</div>';
+  }
   if ($errors['name']) {
     setcookie('name_error', '', 100000);
     $messages[] = '<div class="error">Неправильная форма имени</div>';
@@ -70,6 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   }
 	
   $values = array();
+  $values['user_id'] = empty($_COOKIE['user_id_value']) ? '' : $_COOKIE['user_id_value'];
+  $values['password'] = empty($_COOKIE['password_value']) ? '' : $_COOKIE['password_value'];
   $values['name'] = empty($_COOKIE['name_value']) ? '' : $_COOKIE['name_value'];
   $values['year'] = empty($_COOKIE['year_value']) ? '' : $_COOKIE['year_value'];
   $values['email'] = empty($_COOKIE['email_value']) ? '' : $_COOKIE['email_value'];
@@ -78,12 +91,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $values['biography'] = empty($_COOKIE['biography_value']) ? '' : $_COOKIE['biography_value'];
   $values['checked'] = empty($_COOKIE['checked_value']) ? '' : $_COOKIE['checked_value'];
   $values['abilities'] = empty($_COOKIE['abilities_value']) ? '' : $_COOKIE['abilities_value'];
-
   include('form.php');
 }
 else {
   $errors = FALSE;
-  if (empty($_POST['name']) || !preg_match($reg,$_POST['name'])) {
+  if (empty($_POST['user_id']) || !preg_match($reg,$_POST['user_id'])) {
+    setcookie('user_id_error', '1', time() + 24 * 60 * 60);
+    $errors = TRUE;
+  }
+  else {
+    setcookie('user_id_value', $_POST['user_id'], time() + 30 * 24 * 60 * 60 * 12);
+  }
+if (empty($_POST['password']) || !preg_match($reg,$_POST['password'])) {
+    setcookie('password_error', '1', time() + 24 * 60 * 60);
+    $errors = TRUE;
+  }
+  else {
+    setcookie('password_value', $_POST['password'], time() + 30 * 24 * 60 * 60 * 12);
+  }
+if (empty($_POST['name']) || !preg_match($reg,$_POST['name'])) {
     setcookie('name_error', '1', time() + 24 * 60 * 60);
     $errors = TRUE;
   }
