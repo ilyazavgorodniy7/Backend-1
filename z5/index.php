@@ -4,8 +4,8 @@ $bioreg = "/^\s*\w+[\w\s\.,-]*$/";
 $reg = "/^\w+[\w\s-]*$/";
 $mailreg = "/^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$/";
 $list_abilities = array('1','2','3');
-$login = $db->lastInsertId();;
 $password = '';
+$login='';
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $messages = array();
 	
@@ -147,6 +147,8 @@ else {
   $db = new PDO('mysql:host=localhost;dbname=u52826', $user, $pass,
   [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
   try {
+	  $login = $db->lastInsertId();;
+
 	  $stmt = $db->prepare("INSERT INTO person SET name = ?,email= ?, year= ?, gender= ?, count_limb= ?, biography= ?,checked= ?");
 	  $stmt->execute([$_POST['name'],$_POST['email'],$_POST['year'],$_POST['gender'],$_POST['count_limb'],$_POST['biography'],$_POST['checked']]);
 	  
