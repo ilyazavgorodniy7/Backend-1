@@ -37,7 +37,7 @@ else {
   $_SESSION['user_id'] = $db->lastInsertId();;
 
   // Делаем перенаправление.
-  header('Location: ./');
+  header('Location: ?password=1');
 }
 ?>
 </html>
