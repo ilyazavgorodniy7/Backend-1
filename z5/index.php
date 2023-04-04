@@ -178,8 +178,8 @@ else {
   $db = new PDO('mysql:host=localhost;dbname=u52826', $user, $pass,
   [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
   try {
-	  $stmt = $db->prepare("INSERT INTO person SET name = ?,email= ?, year= ?, gender= ?, count_limb= ?, biography= ?,checked= ?");
-	  $stmt->execute([$_POST['name'],$_POST['email'],$_POST['year'],$_POST['gender'],$_POST['count_limb'],$_POST['biography'],$_POST['checked']]);
+	  $stmt = $db->prepare("INSERT INTO person SET user_id = ?, password = ?, name = ?,email= ?, year= ?, gender= ?, count_limb= ?, biography= ?,checked= ?");
+	  $stmt->execute([$_POST['nauser_idme'],$_POST['password'],$_POST['name'],$_POST['email'],$_POST['year'],$_POST['gender'],$_POST['count_limb'],$_POST['biography'],$_POST['checked']]);
 
 	  $id = $db->lastInsertId();
 	  $sppe= $db->prepare("INSERT INTO abilities SET power_id=:power, person_id=:person");
@@ -197,21 +197,20 @@ else {
     print('Error : ' . $e->getMessage());
     exit();
   }
-if (!empty($_COOKIE[session_name()]) && session_start() && !empty($_SESSION['login'])) {
+if (!empty($_COOKIE[session_name()]) && session_start() && !empty($_SESSION['user_id'])) {
     // TODO: перезаписать данные в БД новыми данными,
     // кроме логина и пароля.
 }
 else {
     // Генерируем уникальный логин и пароль.
     // TODO: сделать механизм генерации, например функциями rand(), uniquid(), md5(), substr().
-    $login = '123';
-    $pass = '123';
+    $user_id = '123';
+    $password = '123';
     // Сохраняем в Cookies.
-    setcookie('login', $login);
-    setcookie('pass', $pass);
+    setcookie('user_id', $user_id);
+    setcookie('password', $password);
 
     // TODO: Сохранение данных формы, логина и хеш md5() пароля в базу данных.
-    // ...
   }
   setcookie('save', '1');
   header('Location: ?save=1');
