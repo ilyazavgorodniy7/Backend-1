@@ -25,20 +25,6 @@
   <form action="index.php" method="POST">
       <label>
       <?php
-        printf('Введите логин:');
-      ?>
-      <br>
-      <input name="user_id" placeholder="login" <?php if ($errors['user_id']) {print 'class="error"';} ?> user_id_value="<?php print $values['user_id']; ?>" >
-      </label>
-      <label>
-      <?php
-        printf('Введите пароль:');
-      ?>
-      <br>
-      <input name="password" placeholder="password" <?php if ($errors['password']) {print 'class="error"';} ?> password_value="<?php print $values['password']; ?>" >
-      </label>
-      <label>
-      <?php
         printf('Имя пользователя:');
       ?>
       <br>
