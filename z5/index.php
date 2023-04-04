@@ -4,8 +4,6 @@ $bioreg = "/^\s*\w+[\w\s\.,-]*$/";
 $reg = "/^\w+[\w\s-]*$/";
 $mailreg = "/^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$/";
 $list_abilities = array('1','2','3');
-$password = '';
-$login='';
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $messages = array();
 	
@@ -177,7 +175,8 @@ if (!empty($_COOKIE[session_name()]) && session_start() && !empty($_SESSION['log
 else {
     // Генерируем уникальный логин и пароль.
     // TODO: сделать механизм генерации, например функциями rand(), uniquid(), md5(), substr().
-    $login = $db->lastInsertId();;
+    $login = $db->lastInsertId();
+    $password = '';
     $arr = array('a','b','c','d','e','f',
                  'g','h','i','j','k','l',
                  'm','n','o','p','r','s',
