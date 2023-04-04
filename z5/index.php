@@ -27,8 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }  
   }
   $errors = array();
-  $errors['user_id'] = !empty($_COOKIE['user_id_error']);
-  $errors['password'] = !empty($_COOKIE['password_error']);
   $errors['name'] = !empty($_COOKIE['name_error']);
   $errors['year'] = !empty($_COOKIE['year_error']);
   $errors['email'] = !empty($_COOKIE['email_error']);
@@ -38,15 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $errors['checked'] = !empty($_COOKIE['checked_error']);
   $errors['abilities'] = !empty($_COOKIE['abilities_error']);
 	
-	
-  if ($errors['user_id']) {
-    setcookie('user_id_error', '', 100000);
-    $messages[] = '<div class="error">Заполните login</div>';
-  }
-  if ($errors['password']) {
-    setcookie('password_error', '', 100000);
-    $messages[] = '<div class="error">Заполните пароль</div>';
-  }
+
   if ($errors['name']) {
     setcookie('name_error', '', 100000);
     $messages[] = '<div class="error">Неправильная форма имени</div>';
@@ -81,8 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   }
 	
   $values = array();
-  $values['user_id'] = empty($_COOKIE['user_id_value']) ? '' : $_COOKIE['user_id_value'];
-  $values['password'] = empty($_COOKIE['password_value']) ? '' : $_COOKIE['password_value'];
   $values['name'] = empty($_COOKIE['name_value']) ? '' : $_COOKIE['name_value'];
   $values['year'] = empty($_COOKIE['year_value']) ? '' : $_COOKIE['year_value'];
   $values['email'] = empty($_COOKIE['email_value']) ? '' : $_COOKIE['email_value'];
@@ -95,20 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 }
 else {
   $errors = FALSE;
-  if (empty($_POST['user_id']) || !preg_match($reg,$_POST['user_id'])) {
-    setcookie('user_id_error', '1', time() + 24 * 60 * 60);
-    $errors = TRUE;
-  }
-  else {
-    setcookie('user_id_value', $_POST['user_id'], time() + 30 * 24 * 60 * 60 * 12);
-  }
-if (empty($_POST['password']) || !preg_match($reg,$_POST['password'])) {
-    setcookie('password_error', '1', time() + 24 * 60 * 60);
-    $errors = TRUE;
-  }
-  else {
-    setcookie('password_value', $_POST['password'], time() + 30 * 24 * 60 * 60 * 12);
-  }
 if (empty($_POST['name']) || !preg_match($reg,$_POST['name'])) {
     setcookie('name_error', '1', time() + 24 * 60 * 60);
     $errors = TRUE;
@@ -178,8 +152,8 @@ else {
   $db = new PDO('mysql:host=localhost;dbname=u52826', $user, $pass,
   [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
   try {
-	  $stmt = $db->prepare("INSERT INTO person SET user_id = ?, password = ?, name = ?,email= ?, year= ?, gender= ?, count_limb= ?, biography= ?,checked= ?");
-	  $stmt->execute([$_POST['nauser_idme'],$_POST['password'],$_POST['name'],$_POST['email'],$_POST['year'],$_POST['gender'],$_POST['count_limb'],$_POST['biography'],$_POST['checked']]);
+	  $stmt = $db->prepare("INSERT INTO person SET name = ?,email= ?, year= ?, gender= ?, count_limb= ?, biography= ?,checked= ?");
+	  $stmt->execute($_POST['name'],$_POST['email'],$_POST['year'],$_POST['gender'],$_POST['count_limb'],$_POST['biography'],$_POST['checked']]);
 
 	  $id = $db->lastInsertId();
 	  $sppe= $db->prepare("INSERT INTO abilities SET power_id=:power, person_id=:person");
@@ -204,7 +178,7 @@ if (!empty($_COOKIE[session_name()]) && session_start() && !empty($_SESSION['use
 else {
     // Генерируем уникальный логин и пароль.
     // TODO: сделать механизм генерации, например функциями rand(), uniquid(), md5(), substr().
-    $user_id = '123';
+    $user_id = $db->lastInsertId();;
     $password = '';
     $arr = array('a','b','c','d','e','f',
                  'g','h','i','j','k','l',
