@@ -10,15 +10,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
   if (!empty($_COOKIE['save'])) {
     setcookie('save', '', 100000);
-    setcookie('login', '', 100000);
-    setcookie('pass', '', 100000);
+    setcookie('user_id', '', 100000);
+    setcookie('password', '', 100000);
     $messages[] = 'Спасибо, результаты сохранены.';
-    if (!empty($_COOKIE['pass'])) {
+    if (!empty($_COOKIE['password'])) {
       $messages[] = sprintf('Вы можете <a href="login.php">войти</a> с логином <strong>%s</strong>
         и паролем <strong>%s</strong> для изменения данных.',
-        strip_tags($_COOKIE['login']),
-        strip_tags($_COOKIE['pass']));
+        strip_tags($_COOKIE['user_id']),
+        strip_tags($_COOKIE['password']));
     }
+    if (!empty($_COOKIE['user_id'])) {
+      $messages[] = sprintf('Вы можете <a href="login.php">войти</a> с логином <strong>%s</strong>
+        и паролем <strong>%s</strong> для изменения данных.',
+        strip_tags($_COOKIE['user_id']),
+        strip_tags($_COOKIE['password']));
+    }  
   }
   $errors = array();
   $errors['name'] = !empty($_COOKIE['name_error']);
