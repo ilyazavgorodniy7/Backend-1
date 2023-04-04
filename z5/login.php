@@ -18,12 +18,11 @@ if (!empty($_SESSION['login'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 ?>
 
-<form action="index.php" method="post">
+<form action="index.php" method="POST">
   <input name="login" placeholder="login"/>
   <input name="password"  placeholder="password"/>
   <input type="submit" value="Войти" />
 </form>
-<body>
 <?php
 }
 // Иначе, если запрос был методом POST, т.е. нужно сделать авторизацию с записью логина в сессию.
