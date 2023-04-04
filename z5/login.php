@@ -30,9 +30,9 @@ if (!empty($_SESSION['login'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 ?>
 
-<form action="" method="post">
-  <input name="login" />
-  <input name="pass" />
+<form action="index.php" method="post">
+  <input name="login" placeholder="name"/>
+  <input name="pass"  placeholder="pass"/>
   <input type="submit" value="Войти" />
 </form>
 
@@ -40,10 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 }
 // Иначе, если запрос был методом POST, т.е. нужно сделать авторизацию с записью логина в сессию.
 else {
-
   // TODO: Проверть есть ли такой логин и пароль в базе данных.
   // Выдать сообщение об ошибках.
-
   // Если все ок, то авторизуем пользователя.
   $_SESSION['login'] = $_POST['login'];
   // Записываем ID пользователя.
