@@ -149,7 +149,7 @@ else {
 	  $stmt = $db->prepare("INSERT INTO person SET name = ?,email= ?, year= ?, gender= ?, count_limb= ?, biography= ?,checked= ?");
 	  $stmt->execute([$_POST['name'],$_POST['email'],$_POST['year'],$_POST['gender'],$_POST['count_limb'],$_POST['biography'],$_POST['checked']]);
 	  
-	  $password = $db->prepare("INSERT INTO person SET login = ?, password = ?");
+	  $password = $db->prepare("INSERT INTO user_info SET login = ?, password = ?");
 	  $password->execute([$_POST['login'],$_POST['password']]);
 	  
 	  $id = $db->lastInsertId();
