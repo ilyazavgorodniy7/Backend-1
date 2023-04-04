@@ -21,8 +21,8 @@
     print('</div>');
   }
   ?>
+  <button><a href="login.php"></a> Log in</button>
   <form action="index.php" method="POST">
-    <button><a href="login.php"></a> Log in</button>
       <label>
       <?php
         printf('Введите логин:');
