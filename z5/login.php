@@ -17,7 +17,7 @@ session_start();
 
 // В суперглобальном массиве $_SESSION хранятся переменные сессии.
 // Будем сохранять туда логин после успешной авторизации.
-if (!empty($_SESSION['login'])) {
+if (!empty($_SESSION['user_id'])) {
   // Если есть логин в сессии, то пользователь уже авторизован.
   // TODO: Сделать выход (окончание сессии вызовом session_destroy()
   //при нажатии на кнопку Выход).
@@ -31,8 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 ?>
 
 <form action="index.php" method="post">
-  <input name="login" placeholder="name"/>
-  <input name="pass"  placeholder="pass"/>
+  <input name="user_id" placeholder="user_id"/>
+  <input name="password"  placeholder="password"/>
   <input type="submit" value="Войти" />
 </form>
 
@@ -43,9 +43,9 @@ else {
   // TODO: Проверть есть ли такой логин и пароль в базе данных.
   // Выдать сообщение об ошибках.
   // Если все ок, то авторизуем пользователя.
-  $_SESSION['login'] = $_POST['login'];
+  $_SESSION['user_id'] = $_POST['user_id'];
   // Записываем ID пользователя.
-  $_SESSION['uid'] = 123;
+  $_SESSION['id'] = $db->lastInsertId();;
 
   // Делаем перенаправление.
   header('Location: ./');
