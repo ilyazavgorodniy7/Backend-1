@@ -1,6 +1,7 @@
 body{
     background-color:darkcyan;
     text-align:center;
+    width:250px;
 }
 form{
     display:flex;
