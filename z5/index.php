@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
   if (!empty($_COOKIE['save'])) {
     setcookie('save', '', 100000);
-    setcookie('user_id', '', 100000);
+    setcookie('login', '', 100000);
     setcookie('password', '', 100000);
     $messages[] = 'Спасибо, результаты сохранены.';
     if (!empty($_COOKIE['password'])) {
@@ -19,12 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         strip_tags($_COOKIE['user_id']),
         strip_tags($_COOKIE['password']));
     }
-    if (!empty($_COOKIE['user_id'])) {
-      $messages[] = sprintf('Вы можете <a href="login.php">войти</a> с логином <strong>%s</strong>
-        и паролем <strong>%s</strong> для изменения данных.',
-        strip_tags($_COOKIE['user_id']),
-        strip_tags($_COOKIE['password']));
-    }  
   }
   $errors = array();
   $errors['name'] = !empty($_COOKIE['name_error']);
@@ -171,14 +165,14 @@ else {
     print('Error : ' . $e->getMessage());
     exit();
   }
-if (!empty($_COOKIE[session_name()]) && session_start() && !empty($_SESSION['user_id'])) {
+if (!empty($_COOKIE[session_name()]) && session_start() && !empty($_SESSION['login'])) {
     // TODO: перезаписать данные в БД новыми данными,
     // кроме логина и пароля.
 }
 else {
     // Генерируем уникальный логин и пароль.
     // TODO: сделать механизм генерации, например функциями rand(), uniquid(), md5(), substr().
-    $user_id = $db->lastInsertId();;
+    $login = $db->lastInsertId();;
     $password = '';
     $arr = array('a','b','c','d','e','f',
                  'g','h','i','j','k','l',
@@ -200,7 +194,7 @@ else {
       $password .= $arr[$index];
     }
     // Сохраняем в Cookies.
-    setcookie('user_id', $user_id);
+    setcookie('login', $login);
     setcookie('password', $password);
 
     // TODO: Сохранение данных формы, логина и хеш md5() пароля в базу данных.
