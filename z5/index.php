@@ -147,7 +147,6 @@ else {
   $db = new PDO('mysql:host=localhost;dbname=u52826', $user, $pass,
   [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
   try {
-	  $login = $db->lastInsertId();;
 
 	  $stmt = $db->prepare("INSERT INTO person SET name = ?,email= ?, year= ?, gender= ?, count_limb= ?, biography= ?,checked= ?");
 	  $stmt->execute([$_POST['name'],$_POST['email'],$_POST['year'],$_POST['gender'],$_POST['count_limb'],$_POST['biography'],$_POST['checked']]);
@@ -178,7 +177,7 @@ if (!empty($_COOKIE[session_name()]) && session_start() && !empty($_SESSION['log
 else {
     // Генерируем уникальный логин и пароль.
     // TODO: сделать механизм генерации, например функциями rand(), uniquid(), md5(), substr().
-
+    $login = $db->lastInsertId();;
     $arr = array('a','b','c','d','e','f',
                  'g','h','i','j','k','l',
                  'm','n','o','p','r','s',
